@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2025 at 03:35 PM
+-- Generation Time: May 31, 2025 at 11:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `saw_penjadwalan_customer`
+-- Database: `saw_perawatan_gigi_terbaik`
 --
 
 -- --------------------------------------------------------
@@ -38,18 +38,21 @@ CREATE TABLE `alternatif` (
 --
 
 INSERT INTO `alternatif` (`id`, `id_peserta`, `id_sub_kreteria`) VALUES
-(27, 1, 37),
-(28, 1, 39),
-(29, 1, 44),
-(30, 1, 49),
-(31, 2, 38),
-(32, 2, 40),
-(33, 2, 48),
-(34, 2, 51),
-(35, 3, 37),
-(36, 3, 46),
-(37, 3, 48),
-(38, 3, 53);
+(39, 7, 54),
+(40, 7, 57),
+(41, 7, 61),
+(42, 7, 64),
+(43, 7, 67),
+(44, 8, 56),
+(45, 8, 60),
+(46, 8, 63),
+(47, 8, 66),
+(48, 8, 69),
+(49, 9, 55),
+(50, 9, 60),
+(51, 9, 63),
+(52, 9, 66),
+(53, 9, 68);
 
 -- --------------------------------------------------------
 
@@ -69,33 +72,34 @@ CREATE TABLE `criteria` (
 --
 
 INSERT INTO `criteria` (`id`, `nama`, `type`, `bobot`) VALUES
-(17, 'Service', 'benefit', 5.00),
-(18, 'Downtime', 'cost', 4.00),
-(19, 'Jarak', 'cost', 4.00),
-(20, 'Jumlah orang/perusahaan terdampak', 'benefit', 3.00);
+(21, 'Biaya Perawatan', 'cost', 3.00),
+(22, 'Lama Waktu Perawatan', 'cost', 4.00),
+(23, 'Tingkat Efektivitas Perawatan ', 'benefit', 2.00),
+(24, 'Kenyamanan Pasien', 'benefit', 5.00),
+(25, 'Risiko Efek Samping', 'cost', 1.00);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Table structure for table `perawatan`
 --
 
-CREATE TABLE `pelanggan` (
+CREATE TABLE `perawatan` (
   `id` int(11) NOT NULL,
-  `nik` varchar(20) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `umur` int(11) NOT NULL,
-  `alamat` text DEFAULT NULL
+  `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data for table `perawatan`
 --
 
-INSERT INTO `pelanggan` (`id`, `nik`, `nama`, `umur`, `alamat`) VALUES
-(1, '1234567890123456', 'Swiss-Belresidences', 25, 'Jakarta Selatan'),
-(2, '1234567890123457', 'favehote PGG Cililitan', 30, 'Jakarta Timur'),
-(3, '1234567890123458', 'Neo Soho', 28, 'Jakarta Barat');
+INSERT INTO `perawatan` (`id`, `nama`, `description`) VALUES
+(7, 'Scaling Gigi', 'Pembersihan karang gigi dan plak untuk menjaga kebersihan mulut'),
+(8, 'Tambal Gigi', 'Menambal gigi berlubang dengan bahan komposit/amalgam'),
+(9, 'Cabut Gigi', 'Pencabutan gigi yang rusak atau tidak bisa dipertahankan'),
+(10, 'Bleaching Gigi', 'Pemutihan gigi untuk estetika'),
+(11, 'Veneer Gigi', 'Lapisan tipis yang ditempelkan di permukaan depan gigi');
 
 -- --------------------------------------------------------
 
@@ -115,23 +119,21 @@ CREATE TABLE `sub_criteria` (
 --
 
 INSERT INTO `sub_criteria` (`id`, `id_kreteria`, `jumlah_bobot`, `deskripsi`) VALUES
-(37, 17, 5.00, 'Retail'),
-(38, 17, 3.00, 'Corporate'),
-(39, 18, 5.00, '> 12 jam'),
-(40, 18, 4.00, '6 – 12 jam'),
-(41, 18, 3.00, '1 – 6 jam'),
-(42, 18, 2.00, '< 1 jam'),
-(43, 18, 1.00, 'Belum terjadi (prediksi/pre-warn)'),
-(44, 19, 5.00, '≤ 5 km'),
-(45, 19, 4.00, '6 – 10 km'),
-(46, 18, 3.00, '11 – 20 km'),
-(47, 19, 2.00, '21 – 50 km'),
-(48, 19, 1.00, '> 50 km'),
-(49, 20, 5.00, '> 100 orang / > 10 perusahaan'),
-(50, 20, 4.00, '51 – 100 orang / 6 – 10 perusahaan'),
-(51, 20, 3.00, '21 – 50 orang / 3 – 5 perusahaan'),
-(52, 20, 2.00, '10 – 20 orang / 2 perusahaan'),
-(53, 20, 1.00, '< 10 orang / 1 perusahaan');
+(54, 21, 5.00, '< Rp250.000'),
+(55, 21, 4.00, 'Rp250.000 – Rp500.000'),
+(56, 21, 3.00, 'Rp500.000 – Rp750.000'),
+(57, 22, 5.00, '< 15 menit'),
+(59, 22, 4.00, '15 – 30 menit'),
+(60, 22, 3.00, '31 – 60 menit'),
+(61, 23, 5.00, 'Sangat efektif (95–100%)'),
+(62, 23, 4.00, 'Efektif (85–94%)'),
+(63, 23, 3.00, 'Cukup efektif (70–84%)'),
+(64, 24, 5.00, 'Sangat nyaman'),
+(65, 24, 4.00, 'Nyaman'),
+(66, 24, 3.00, 'Cukup nyaman'),
+(67, 25, 5.00, 'Tidak ada efek samping'),
+(68, 25, 4.00, 'Efek samping sangat ringan'),
+(69, 25, 3.00, 'Efek samping ringan');
 
 -- --------------------------------------------------------
 
@@ -176,9 +178,9 @@ ALTER TABLE `criteria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pelanggan`
+-- Indexes for table `perawatan`
 --
-ALTER TABLE `pelanggan`
+ALTER TABLE `perawatan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -204,25 +206,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `criteria`
 --
 ALTER TABLE `criteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT for table `perawatan`
 --
-ALTER TABLE `pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `perawatan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `sub_criteria`
 --
 ALTER TABLE `sub_criteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -238,7 +240,7 @@ ALTER TABLE `users`
 -- Constraints for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  ADD CONSTRAINT `alternatif_ibfk_1` FOREIGN KEY (`id_peserta`) REFERENCES `pelanggan` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `alternatif_ibfk_1` FOREIGN KEY (`id_peserta`) REFERENCES `perawatan` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `alternatif_ibfk_2` FOREIGN KEY (`id_sub_kreteria`) REFERENCES `sub_criteria` (`id`) ON DELETE CASCADE;
 
 --
