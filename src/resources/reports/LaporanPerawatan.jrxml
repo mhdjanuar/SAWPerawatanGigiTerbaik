@@ -34,7 +34,7 @@
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
 		<queryString language="SQL">
-			<![CDATA[select * from  saw_perawatan_gigi_terbaik.perawatan ]]>
+			<![CDATA[select * from  saw_perawatan_gigi_terbaik.perawatan]]>
 		</queryString>
 		<field name="id" class="java.lang.Integer">
 			<property name="com.jaspersoft.studio.field.name" value="id"/>
@@ -190,7 +190,7 @@
 								<textElement textAlignment="Center">
 									<paragraph spacingBefore="10"/>
 								</textElement>
-								<text><![CDATA[DESKRIPSI]]></text>
+								<text><![CDATA[ALAMAT]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="Table_TD" height="30">

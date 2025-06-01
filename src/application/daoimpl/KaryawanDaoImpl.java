@@ -108,11 +108,12 @@ public class KaryawanDaoImpl implements KaryawanDao {
         int result = 0;
         try {
             // Query untuk mengupdate data karyawan
-            query = "UPDATE pelanggan SET nama = ?, umur = ?, alamat = ? WHERE id = ?";
+            query = "UPDATE perawatan SET nama = ?, description = ? WHERE id = ?";
 
             pstmt = dbConnection.prepareStatement(query);
             pstmt.setString(1, karyawan.getName());  // Nama karyawan
-            pstmt.setInt(4, karyawan.getId());  // ID karyawan yang akan diupdate
+            pstmt.setString(2, karyawan.getDescription());  // Nama karyawan
+            pstmt.setInt(3, karyawan.getId());  // ID karyawan yang akan diupdate
 
             result = pstmt.executeUpdate();  // Eksekusi query update
         } catch (SQLException e) {
@@ -129,7 +130,7 @@ public class KaryawanDaoImpl implements KaryawanDao {
     public int deleteKaryawan(int id) {
         int result = 0;
         try {
-            query = "DELETE FROM pelanggan WHERE id = ?";
+            query = "DELETE FROM perawatan WHERE id = ?";
             pstmt = dbConnection.prepareStatement(query);
             pstmt.setInt(1, id);
 

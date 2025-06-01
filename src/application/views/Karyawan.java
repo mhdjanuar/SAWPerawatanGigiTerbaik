@@ -61,7 +61,7 @@ import net.sf.jasperreports.view.JasperViewer;
             // Set Model untuk JTable
             DefaultTableModel model = new DefaultTableModel();
             model.setColumnIdentifiers(new Object[]{
-                "ID Perawatan", "Nama", "Deskripsi",
+                "ID Pasien", "Nama", "Alamat"
             });
 
             // Masukkan data karyawan ke dalam model JTable
@@ -69,7 +69,7 @@ import net.sf.jasperreports.view.JasperViewer;
                 model.addRow(new Object[]{
                     karyawan.getId(),
                     karyawan.getName(),
-                    karyawan.getDescription(),
+                    karyawan.getDescription()
                 });
             }
 
@@ -96,13 +96,13 @@ import net.sf.jasperreports.view.JasperViewer;
 
                 // Ambil data dari baris yang diklik
                 String nama = jTable1.getValueAt(selectedRow, 1).toString();
-                String deksripsi = jTable1.getValueAt(selectedRow, 2).toString();
+                String alamat = jTable1.getValueAt(selectedRow, 2).toString();
                 
                 this.selectedId = jTable1.getValueAt(selectedRow, 0).toString();
 
                 // Tampilkan ke form
                 txtNama.setText(nama);
-                jTextArea1.setText(deksripsi);
+                jTextArea1.setText(alamat);
             }
         });
 
@@ -156,7 +156,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
         jLabel1.setText("Masukan Nama");
 
-        jLabel6.setText("Masukan Deskripsi");
+        jLabel6.setText("Alamat");
 
         jButton1.setText("SIMPAN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +201,7 @@ import net.sf.jasperreports.view.JasperViewer;
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
                             .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 445, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 461, Short.MAX_VALUE)
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
