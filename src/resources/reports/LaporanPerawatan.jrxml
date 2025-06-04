@@ -190,7 +190,7 @@
 								<textElement textAlignment="Center">
 									<paragraph spacingBefore="10"/>
 								</textElement>
-								<text><![CDATA[ALAMAT]]></text>
+								<text><![CDATA[DESKRIPSI]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="Table_TD" height="30">
