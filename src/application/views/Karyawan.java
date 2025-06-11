@@ -61,7 +61,7 @@ import net.sf.jasperreports.view.JasperViewer;
             // Set Model untuk JTable
             DefaultTableModel model = new DefaultTableModel();
             model.setColumnIdentifiers(new Object[]{
-                "ID Pasien", "Nama", "Deskripsi"
+                "ID Perawatan", "Nama", "Deskripsi"
             });
 
             // Masukkan data karyawan ke dalam model JTable
@@ -156,7 +156,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
         jLabel1.setText("Masukan Nama");
 
-        jLabel6.setText("Alamat");
+        jLabel6.setText("Deskripsi");
 
         jButton1.setText("SIMPAN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

@@ -148,7 +148,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Alamat"/>
+            <Property name="text" type="java.lang.String" value="Deskripsi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

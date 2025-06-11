@@ -193,7 +193,7 @@ ORDER BY total_nilai DESC;]]>
 								<textElement textAlignment="Center">
 									<paragraph spacingBefore="10"/>
 								</textElement>
-								<text><![CDATA[Nama Pasien]]></text>
+								<text><![CDATA[Nama Perawatan]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="Table_TD" height="30">

@@ -203,7 +203,7 @@ ORDER BY p.nama, c.id;]]>
 								<textElement textAlignment="Center">
 									<paragraph firstLineIndent="10" spacingBefore="10" spacingAfter="10"/>
 								</textElement>
-								<text><![CDATA[Nama Pasien]]></text>
+								<text><![CDATA[Nama Perawatan]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="Table_TD" height="30">
