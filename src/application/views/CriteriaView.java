@@ -8,6 +8,7 @@ import application.dao.CriteriaDao;
 import application.daoimpl.CriteriaDaoImpl;
 import application.models.CriteriaModel;
 import application.utils.DatabaseUtil;
+import java.awt.Font;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -54,6 +56,18 @@ public class CriteriaView extends javax.swing.JPanel {
         
         // Set the table model to jTable1
         jTable1.setModel(model);
+        
+        // ============== Tambahkan bagian ini untuk perbesar font dan row height ==============
+        // Set font table
+        Font tableFont = new Font("SansSerif", Font.PLAIN, 16); // Ganti ukuran sesuai keinginan
+        jTable1.setFont(tableFont);
+
+        // Set row height
+        jTable1.setRowHeight(28); // Ganti sesuai kebutuhan, misal 28 pixel
+
+        // Optional: set font header lebih besar juga
+        JTableHeader header = jTable1.getTableHeader();
+        header.setFont(new Font("SansSerif", Font.BOLD, 18));
     }
 
     /**

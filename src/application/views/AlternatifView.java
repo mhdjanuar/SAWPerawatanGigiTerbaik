@@ -36,6 +36,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -66,6 +67,18 @@ public class AlternatifView extends javax.swing.JPanel {
 
         // Set model ke jTable1
         jTable1.setModel(model);
+        
+        // ============== Tambahkan bagian ini untuk perbesar font dan row height ==============
+        // Set font table
+        Font tableFont = new Font("SansSerif", Font.PLAIN, 16); // Ganti ukuran sesuai keinginan
+        jTable1.setFont(tableFont);
+
+        // Set row height
+        jTable1.setRowHeight(28); // Ganti sesuai kebutuhan, misal 28 pixel
+
+        // Optional: set font header lebih besar juga
+        JTableHeader header = jTable1.getTableHeader();
+        header.setFont(new Font("SansSerif", Font.BOLD, 18));
     }
 
 

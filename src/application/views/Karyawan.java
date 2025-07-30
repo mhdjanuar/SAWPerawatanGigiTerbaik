@@ -13,6 +13,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -37,6 +38,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -75,7 +77,20 @@ import net.sf.jasperreports.view.JasperViewer;
 
             // Set model ke JTable
             jTable1.setModel(model);
+
+            // ============== Tambahkan bagian ini untuk perbesar font dan row height ==============
+            // Set font table
+            Font tableFont = new Font("SansSerif", Font.PLAIN, 16); // Ganti ukuran sesuai keinginan
+            jTable1.setFont(tableFont);
+
+            // Set row height
+            jTable1.setRowHeight(28); // Ganti sesuai kebutuhan, misal 28 pixel
+
+            // Optional: set font header lebih besar juga
+            JTableHeader header = jTable1.getTableHeader();
+            header.setFont(new Font("SansSerif", Font.BOLD, 18));
         }
+
 
     
     /**
